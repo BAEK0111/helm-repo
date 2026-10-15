@@ -1,0 +1,15 @@
+{{- with .Values.service }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name }}
+  namespace: {{ $.Values.global.namespace }}
+spec:
+  type: {{ .portType }}
+  selector:
+    app: {{ $.Values.global.labelsValue }}
+  ports:
+  - port: {{ $.Values.global.port }}
+    targetPort: {{ $.Values.global.port }}
+    nodePort: {{ .nodePort }}
+{{- end }}

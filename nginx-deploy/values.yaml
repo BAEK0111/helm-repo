@@ -1,0 +1,13 @@
+global:
+  namespace: k8s-namespace
+  labelsValue: nginx
+  port: 80
+deployment:
+  name: k8s-deployment
+  replicas: 3
+  containerName: k8s-container
+  image: nginx:latest  
+service:
+  name: k8s-service2
+  portType: NodePort
+  nodePort: 30008
